@@ -22,12 +22,12 @@ export class RegisterComponent implements OnInit {
 
     {
 
-      email:['Gabrielhernandez@gmail.com',[Validators.required,Validators.pattern(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i)]],
-      phone:['6065-0959',[Validators.required,Validators.pattern(/^\d{4}-\d{4}$/)]],
-      cedula:['8-930-199',[Validators.required]],
-      name:['GAbriel Hernandez',[Validators.required,Validators.minLength(2)]],
-      password:['123456789',Validators.required],
-      password2:['123456789',Validators.required],
+      email:['',[Validators.required,Validators.pattern(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i)]],
+      phone:['',[Validators.required,Validators.pattern(/^\d{4}-\d{4}$/)]],
+      cedula:['',[Validators.required]],
+      name:['',[Validators.required,Validators.minLength(2)]],
+      password:['',Validators.required],
+      password2:['',Validators.required],
 
 
     }
@@ -70,9 +70,12 @@ export class RegisterComponent implements OnInit {
     }
 
 
+    this.miFormulario.get('email').setValue(this.miFormulario.value.email.toLowerCase());
+
     this.usuario = {...this.miFormulario.value}
-    console.log(this.usuario)
     this.mostrarSpinner = true;
+
+
 
     this.authService.Registro(this.usuario).subscribe(resp=>{
 

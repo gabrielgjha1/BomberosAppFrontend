@@ -24,3 +24,14 @@
 .ui-steps.steps-custom .ui-steps-item .ui-steps-title {
   color: #555555;
 }
+
+
+
+@media (max-width: 600px) {
+  .elinar{
+
+
+    display: none;
+  }
+
+}

@@ -23,6 +23,8 @@ export class AuthService {
 
   public  login (email:string,password:string){
 
+    email.toLowerCase;
+    email.trim();
 
     const url = this.baseUrl+'/auth/login';
     const body = {email,password};

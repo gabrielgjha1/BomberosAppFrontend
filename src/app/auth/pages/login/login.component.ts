@@ -35,8 +35,9 @@ export class LoginComponent implements OnInit {
 
   login(){
 
-    const {email,password} = this.miFormulario.value;
 
+    this.miFormulario.get('email').setValue(this.miFormulario.value.email.toLowerCase());
+    const {email,password} = this.miFormulario.value;
     this.mostrarSpinner = true;
     this._AuthService.login(email,password).subscribe(((resp:boolean)=>{
 
