@@ -1,0 +1,67 @@
+
+<form [formGroup]="miFormulario" (ngSubmit)="registro()" action="">
+
+  <h5 class="pb-5 mb-2">Ingrese su nombre completo</h5>
+        <span [style]="{'width': '100%'}" class="p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input type="text" formControlName="name" pInputText placeholder="Nombre" style="width: 100%;" />
+        </span>
+        <span style="color: red;" *ngIf="validarDatos('name')"  class="pt-1">
+          Campo Requerido, minimo  caracteres
+        </span>
+
+        <h5 class="pb-5 mb-2 mt-3">Ingrese su correo</h5>
+        <span [style]="{'width': '100%'}" class="p-input-icon-left">
+            <i class="pi pi-eye"></i>
+            <input type="email" formControlName="email" pInputText placeholder="Correo" style="width: 100%;" />
+        </span>
+        <span  style="color: red;" *ngIf="validarDatos('email')" class="pt-1">
+          Campo Requerido tipo email
+        </span>
+
+        <h5 class="pb-5 mb-2 mt-3">Ingrese su cédula</h5>
+        <span [style]="{'width': '100%'}" class="p-input-icon-left">
+            <i class="pi pi-id-card"></i>
+            <input type="text" formControlName="cedula" pInputText placeholder="Cédula" style="width: 100%;" />
+        </span>
+
+        <span style="color: red;" *ngIf="validarDatos('cedula')" class="pt-1">
+          Campo Requerido
+        </span>
+
+        <h5 class="pb-5 mb-2 mt-3">Ingrese su celular (1111-1111)</h5>
+        <span [style]="{'width': '100%'}" class="p-input-icon-left">
+            <i class="pi pi-phone"></i>
+            <input type="text" formControlName="phone"  pInputText placeholder="Celular" style="width: 100%;" />
+        </span>
+
+        <span style="color: red;" *ngIf="validarDatos('phone')" class="pt-1">
+          Campo Requerido formato (1111-1111)
+        </span>
+
+        <h5 class="pb-5 mb-2 mt-3">Ingrese su contraseña</h5>
+        <span [style]="{'width': '100%'}" class="p-input-icon-left">
+            <i class="pi pi-lock"></i>
+            <input type="password" formControlName="password" [ngClass]="{'ng-invalid ng-dirty': passwordvalidate==true}" pInputText placeholder="Contraseña" style="width: 100%;" />
+        </span>
+
+        <h5 class="pb-5 mb-2 mt-3">Repita su contraseña</h5>
+        <span [style]="{'width': '100%'}"  class="p-input-icon-left">
+            <i class="pi pi-lock"></i>
+            <input type="password" formControlName="password2" [ngClass]="{'ng-invalid ng-dirty': passwordvalidate==true}"  pInputText placeholder="Contraseña" style="width: 100%;" />
+        </span>
+        <span style="color: red;" *ngIf="validarDatos('password2')" class="pt-1">
+          Campo Requerido
+        </span>
+        <span style="color: red;"  *ngIf="passwordvalidate" class="pt-1">
+          Las contraseña deben ser iguales
+        </span>
+        <button pButton pRipple type="submit" style="width: 100%;"   label="Iniciar Sesión" class="p-button-raised p-button-warning mt-3"></button>
+
+
+</form>
+
+<div class="spinner" *ngIf="mostrarSpinner"   >
+  <p-progressSpinner ></p-progressSpinner>
+
+</div>

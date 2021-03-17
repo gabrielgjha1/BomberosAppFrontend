@@ -1,0 +1,174 @@
+
+<section class="container mt-2 p-3 shadow-diffuse">
+<h1 class="text-center">Solicitud del usuario: </h1>
+<hr class="mt-2 mb-2">
+
+
+
+  <section>
+    <form  *ngIf="!mostrarSpinner"   class="inputs"  [formGroup]="formulario" >
+
+
+      <div>
+        <h4>Información del usuario</h4>
+        <hr class="mb-3 mt-2">
+        <p>Nombre</p>
+        <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+            <i class="pi pi-search"></i>
+            <input type="text" name="name"  value="{{user.name}}" disabled  style="width: 100%;" pInputText placeholder="Nombre" />
+        </span>
+
+
+
+        <p class="mt-3">Cédula</p>
+        <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+            <i class="pi pi-search"></i>
+            <input type="text" disabled name="cedula"  value="{{user.cedula}}" style="width: 100%;" pInputText  placeholder="Cédula" />
+        </span>
+
+        <p class="mt-3">Correo</p>
+        <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+            <i class="pi pi-search"></i>
+            <input type="text" disabled name="email"  value="{{user.email}}"  style="width: 100%;" pInputText  placeholder="Correo" />
+        </span>
+
+        <p class="mt-3">Teléfono</p>
+        <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+            <i class="pi pi-search"></i>
+            <input type="text" name="phone" disabled value="{{user.phone}}"  pInputText  placeholder="Teléfono" />
+        </span>
+
+
+
+    </div>
+
+
+      <div>
+        <h4>Información Principal</h4>
+        <hr class="mb-3 mt-2">
+          <p>Tipo de edificación</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="text" name="type_edification"  formControlName="type_edification"  style="width: 100%;" pInputText placeholder="Tipo de edificación" />
+          </span>
+
+          <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('type_edification')">
+            <span >El campo es requerido</span>
+          </div>
+
+
+          <p class="mt-3">Áreas a demoler</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="number" name="areas_demolishions" formControlName="areas_demolishions" style="width: 100%;" pInputText  placeholder="Áreas a demoler" />
+          </span>
+
+          <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('areas_demolishions')">
+            <span >El campo es requerido</span>
+          </div>
+
+
+          <p class="mt-3">Número de niveles</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="number" name="number_levels" formControlName="number_levels" style="width: 100%;" pInputText  placeholder="Número de niveles" />
+          </span>
+
+          <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('number_levels')">
+            <span >El campo es requerido</span>
+          </div>
+
+
+          <p class="mt-3">Tipo de material</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="text" name="type_material" formControlName="type_material" style="width: 100%;" pInputText  placeholder="Tipo de material" />
+          </span>
+
+          <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('type_material')">
+            <span >El campo es requerido</span>
+          </div>
+
+
+          <p class="mt-3">Poeste eléctrico cercano</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="text" name="electric_pole" formControlName="electric_pole" style="width: 100%;" pInputText  placeholder="Poeste eléctrico cercano" />
+          </span>
+
+          <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('electric_pole')">
+            <span >El campo es requerido</span>
+          </div>
+
+
+          <p>Dirección Exacta</p>
+          <textarea rows="5" cols="30" formControlName="address"  pInputTextarea></textarea>
+
+          <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('address')">
+            <span >El campo es requerido</span>
+          </div>
+
+
+          <p class="">Valor de la demolición</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="number" formControlName="value_Demolishion" name="value_Demolishion" style="width: 100%;" pInputText  placeholder="Valor de la demolición" />
+          </span>
+          <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('value_Demolishion')">
+            <span >El campo es requerido</span>
+          </div>
+
+
+          <p class="mt-3"> ¿ Cuentas con energia eléctrica o gas ?</p>
+          <div class="p-field-radiobutton mt-1">
+              <p-radioButton class="mr-2" name="type_Energy" value="1"  formControlName="type_Energy"  inputId="city1"></p-radioButton>
+              <label for="city1">Électrica</label>
+          </div>
+
+
+
+          <div class="p-field-radiobutton mt-1">
+              <p-radioButton class="mr-2" name="type_Energy" value="0" formControlName="type_Energy" inputId="city2"></p-radioButton>
+              <label for="city2">Gas</label>
+          </div>
+
+
+
+          <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('type_Energy')">
+            <span >El campo es requerido</span>
+          </div>
+
+          <p class="mt-3"> ¿ La obra a demoler esta deshabilitada ?</p>
+          <div class="p-field-radiobutton mt-1">
+              <p-radioButton class="mr-2" name="Contruccion_disable" value="1" formControlName="Contruccion_disable"  inputId="opcion2"></p-radioButton>
+              <label for="opcion2"  >Si</label>
+          </div>
+          <div class="p-field-radiobutton mt-1">
+              <p-radioButton class="mr-2" name="Contruccion_disable" value="0" formControlName="Contruccion_disable"  inputId="opcion1"></p-radioButton>
+              <label for="opcion1">No</label>
+          </div>
+
+          <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('Contruccion_disable')">
+            <span >El campo es requerido</span>
+          </div>
+
+
+      </div>
+
+
+      <button pButton  [disabled]="comprobarStatusAceptar()"  (click)="AceptarProyecto('accepted',request.id)" style="width: 100%;" *ngIf="mostrarValidadores  "  label="Aceptar" class="p-button-raised p-button-warning mt-3"></button>
+      <button pButton pRipple [disabled]="comprobarStatusRechazar()" (click)="RechazarProyecto('rejected',request.id)" style="width: 100%;" *ngIf="mostrarValidadores"  label="Rechazar" class="p-button-raised p-button-warning mt-3"></button>
+
+
+      <button pButton pRipple [disabled]="formulario.invalid" (click)="EnviarFormulario()"  type="submit" style="width: 100%;" *ngIf="MostrarSubmit"  label="Aceptar" class="p-button-raised p-button-warning mt-3"></button>
+  </form>
+
+  <div class="spinner" *ngIf="mostrarSpinner"   >
+    <p-progressSpinner ></p-progressSpinner>
+
+  </div>
+  </section>
+
+
+
+</section>

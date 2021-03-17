@@ -1,0 +1,10 @@
+<p-menubar  *ngIf="mostrarSpinner"  [model]="items" ngClass styleClass="color-primary"  >
+
+</p-menubar>
+
+
+
+<div class="spinner" *ngIf="!mostrarSpinner"   >
+  <p-progressSpinner ></p-progressSpinner>
+
+</div>

@@ -1,0 +1,40 @@
+
+<div class="container p-3 shadow-dreamy">
+  <div class="container">
+  <p-carousel [value]="product" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="header">
+        <h1 class="text-center">Ultimas Noticias</h1>
+        <hr class="mt-2">
+    </ng-template>
+    <ng-template let-product pTemplate="item">
+        <div class="product-item">
+            <div class="product-item-content">
+                <div class="p-mb-3">
+                    <img src="{{product.img}}"  class="product-image" />
+                </div>
+                <div>
+                    <h2 class="p-mb-1">{{product.Nombre}}</h2>
+                    <hr>
+                    <p class="p-mt-0 p-mb-3">{{product.direccion}}</p>
+                    <div class="car-buttons p-mt-5">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>
+
+
+<div>
+  <p-messages severity="info">
+    <ng-template pTemplate>
+        <div class="p-ml-2">Si quieres hacer una petición de demolición <a (click)="registro()"  style="cursor: pointer;" > <b>Registrate !</b> </a> </div>
+    </ng-template>
+</p-messages>
+
+</div>
+
+</div>
+
+</div>

@@ -1,0 +1,62 @@
+
+
+<section class="container">
+  <form class="inputs" [formGroup]="miformulario" >
+
+    <section>
+
+      <p>Dirección Exacta</p>
+      <textarea rows="5" cols="30" formControlName="address"  pInputTextarea></textarea>
+
+      <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('address')">
+        <span >El campo es requerido</span>
+      </div>
+
+    </section>
+
+    <section>
+
+      <div>
+        <p> ¿ Es una constructora ?</p>
+
+        <div class="p-field-radiobutton">
+            <p-radioButton class="mr-2 mt-2"  name="contruction_company" value="1" formControlName="contruction_company"  inputId="city1"></p-radioButton>
+            <label for="city1">Si</label>
+        </div>
+
+        <div class="p-field-radiobutton">
+            <p-radioButton class="mr-2 mt-1" name="contruction_company" value="0" formControlName="contruction_company"  inputId="city2"></p-radioButton>
+            <label for="city2">No</label>
+        </div>
+
+        <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('contruction_company')">
+          <span >El campo es requerido</span>
+        </div>
+      </div>
+
+      <div *ngIf="miformulario.value.contruction_company == 1">
+          <p>Cerficado de paz y salvo del profesional encargado de la demolisión <b>Formato:Imagen</b></p>
+          <p-fileUpload name="thecnical_resolution" accept="image/*"   customUpload="true" (onSelect)="Thecnical_resolution($event)"></p-fileUpload>
+      <div>
+        <div  class="mt-1 mb-1 errormessage" *ngIf="error">
+          <span >La imagen es requerida</span>
+        </div>
+
+  </div>
+
+
+      </div>
+
+
+
+    </section>
+
+  </form>
+
+
+</section>
+
+<div class="p-grid p-nogutter p-justify-between mt-5">
+  <p-button class="mr-1" label="Atras" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>
+  <p-button label="Siguiente" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
+</div>

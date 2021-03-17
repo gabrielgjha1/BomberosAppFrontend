@@ -1,0 +1,27 @@
+<!-- <router-outlet></router-outlet> -->
+<section class="image-background" >
+
+  <section class="formulario shadow-dreamy">
+
+    <div  style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <div class="mb-3">
+
+        <a routerLink="login" routerLinkActive="linedown"  class="mr-3">Inicio Sesión</a>
+        <a [routerLink]="['/auth/register']" routerLinkActive="linedown" > Registro</a>
+      </div>
+
+
+      <img src="assets/img/login.png" width="35%"  class="text-center" alt="">
+    </div>
+
+    <div style="width: 100%;" class="mt-5">
+
+      <router-outlet></router-outlet>
+
+    </div>
+
+
+  </section>
+
+
+</section>

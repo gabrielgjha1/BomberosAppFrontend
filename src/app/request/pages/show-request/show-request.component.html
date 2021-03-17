@@ -1,0 +1,38 @@
+<section class="container shadow-dreamy p-2 mt-2">
+  <div *ngIf="!mostrarSpinner" class="table-responsive">
+    <h1 class="text-center mt-2 mb-2 " > Solicitudes En Proceso </h1>
+    <hr>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Acción</th>
+          <th scope="col">Ver</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of request;let i = index">
+          <th class="text-center"  scope="row">{{i+1}}</th>
+          <td class="text-center" >{{item.address}}</td>
+          <td class="text-center" >{{item.created_at | date}}</td>
+          <td class="text-center" > <a style="text-decoration: none;" href=""><p-tag severity="Success" value="{{item.status | cambiarnombre}}" [rounded]="true"></p-tag></a>  </td>
+          <td class="text-center" > <a *ngIf="item.status  == 'rejected'  "  style="cursor: pointer;" (click)="EliminarRequest(item.id)"> <p-tag severity="danger" value="Eliminar" [rounded]="true"></p-tag> </a>  </td>
+          <td class="text-center" > <a  style="cursor: pointer;" (click)="Actualizar(item.id)"> <p-tag severity="success" value="Ver" [rounded]="true"></p-tag> </a>  </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="spinner" *ngIf="mostrarSpinner"   >
+    <p-progressSpinner ></p-progressSpinner>
+
+  </div>
+
+
+</section>

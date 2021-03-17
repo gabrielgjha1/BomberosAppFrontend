@@ -1,0 +1,30 @@
+
+<form  *ngIf="!mostrarSpinner" [formGroup]="miFormulario" (ngSubmit)="login()"   >
+  <h5 class="pb-5 mb-2">Ingrese su correo</h5>
+  <span [style]="{'width': '100%'}" class="p-input-icon-left mb-1">
+      <i class="pi pi-user"></i>
+      <input  formControlName="email" type="text" pInputText placeholder="Correo" style="width: 100%;" />
+
+
+  </span>
+  <span *ngIf="validarDatos('email')" class="pt-1">
+    Campo Requerido
+  </span>
+  <h5 class="pb-5 mb-2 mt-3">Ingrese su contraseña</h5>
+  <span  [style]="{'width': '100%'}" class="p-input-icon-left mb-1">
+      <i class="pi pi-lock"></i>
+      <input formControlName="password" [ngClass]="{'ng-invalid ng-dirty': validarDatos('password')===true}" class="" type="password" pInputText placeholder="Contraseña" style="width: 100%;" />
+
+  </span>
+  <span *ngIf="validarDatos('password')" class="pt-1">
+    Campo Requerido
+  </span>
+  <button pButton pRipple type="submit" style="width: 100%;"   label="Iniciar Sesión" class="p-button-raised p-button-warning mt-3"></button>
+
+
+</form>
+
+<div class="spinner" *ngIf="mostrarSpinner"   >
+  <p-progressSpinner ></p-progressSpinner>
+
+</div>

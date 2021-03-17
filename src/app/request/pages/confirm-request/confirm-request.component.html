@@ -1,0 +1,94 @@
+<div *ngIf="!mostrarSpinner" class="stepsdemo-content">
+  <p-card>
+    <ng-template pTemplate="title"> Confirmación </ng-template>
+    <ng-template pTemplate="subtitle"> Verifique todos los datos </ng-template>
+    <ng-template pTemplate="content">
+
+      <section class="inputs">
+        <div>
+
+          <div class="p-field p-col-12 mb-3">
+            <label for="class">Tipo de edificación: </label>
+            <b> {{request.type_edification || '-'}} </b>
+          </div>
+
+          <div class="p-field p-col-12 mb-3">
+            <label for="class">Áreas a demoler: </label>
+            <b>{{request.areas_demolishions || '-'}}</b>
+          </div>
+
+          <div class="p-field p-col-12 mb-3">
+            <label for="class">Número de niveles: </label>
+            <b>{{request.number_levels || '-'}}</b>
+          </div>
+
+          <div class="p-field p-col-12 mb-3">
+            <label for="class">Tipo de material: </label>
+            <b>{{request.type_material || '-'}}</b>
+          </div>
+
+          <div class="p-field p-col-12 mb-3">
+            <label for="class">Poeste eléctrico cercano: </label>
+            <b>{{request.electric_pole || '-'}}</b>
+          </div>
+
+
+        </div>
+
+        <div>
+          <div class="p-field p-col-12 mb-3">
+            <label for="class">Valor de la demolición: </label>
+            <b>{{request.value_Demolishion || '-'}}</b>
+          </div>
+
+          <div class="p-field p-col-12 mb-3">
+            <label for="class">¿ Cuentas con energia eléctrica o gas ?: </label>
+            <b>{{request.type_Energy == 1 ? 'Electrica': 'Gas'}}</b>
+          </div>
+
+          <div class="p-field p-col-12 mb-3">
+            <label for="class">¿ La obra a demoler esta deshabilitada ?: </label>
+            <b> {{request.Contruccion_disable == 1 ? 'Si':'No'}}</b>
+
+          </div>
+
+          <div class="p-field p-col-12 mb-3">
+            <label for="class"> Dirección Exacta : </label>
+            <b>{{request.address || '-'}}</b>
+
+          </div>
+
+          <div class="p-field p-col-12 mb-3">
+            <label for="class"> ¿ Es una constructora ? : </label>
+            <b> {{request.contruction_company == 1 ? 'Si':'No'}}</b>
+          </div>
+        </div>
+      </section>
+
+
+
+
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="p-grid p-nogutter p-justify-between">
+        <p-button
+          label="Back"
+          (onClick)="prevPage()"
+          icon="pi pi-angle-left"
+          class="mr-2"
+        ></p-button>
+        <p-button
+          label="Complete"
+          (onClick)="enviar()"
+          icon="pi pi-angle-right"
+          iconPos="right"
+          styleClass="p-button-success"
+        ></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
+<div class="spinner" *ngIf="mostrarSpinner"   >
+  <p-progressSpinner ></p-progressSpinner>
+
+</div>

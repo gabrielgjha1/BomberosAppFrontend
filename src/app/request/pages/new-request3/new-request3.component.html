@@ -1,0 +1,76 @@
+<section class="container">
+
+
+  <section>
+    <form   class="inputs"  (ngSubmit)="EnviarFormulario()" [formGroup]="formulario" >
+      <div>
+
+          <p>Nombre</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="text" name="name" value="{{Usuario.name}}" disabled  style="width: 100%;" pInputText placeholder="Nombre" />
+          </span>
+
+
+
+          <p class="mt-3">Cédula</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="text" disabled name="cedula"  value="{{Usuario.cedula}}" style="width: 100%;" pInputText  placeholder="Cédula" />
+          </span>
+
+          <p class="mt-3">Correo</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="text" disabled name="email"  value="{{Usuario.email}}"  style="width: 100%;" pInputText  placeholder="Correo" />
+          </span>
+
+          <p class="mt-3">Teléfono</p>
+          <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+              <i class="pi pi-search"></i>
+              <input type="text" name="phone" disabled value="{{Usuario.phone}}"  pInputText  placeholder="Teléfono" />
+          </span>
+
+
+
+
+
+
+      </div>
+
+
+
+    <div >
+
+      <div>
+
+            <p>Cerficado de paz y salvo del profesional encargado de la demolisión  <b>Formato:Imagen</b>  </p>
+            <p-fileUpload name="PazAndSave" accept="image/*"   customUpload="true" (onSelect)="PazAndSave($event)"></p-fileUpload>
+
+      </div>
+
+      <div>
+
+            <p>Visto bueno en el permiso para la demolición de la Junta Comunal del corregimiento que le corresponde.  <b>Formato:Imagen</b>  </p>
+            <p-fileUpload name="Demolishion" accept="image/*"   customUpload="true" (onSelect)="Demolishion($event)"></p-fileUpload>
+
+            <div  class="mt-1 mb-1 errormessage" *ngIf="errores">
+              <span >Ambas imagenes son requeridas</span>
+            </div>
+
+      </div>
+
+    </div>
+  </form>
+
+
+  </section>
+
+
+
+</section>
+
+<div class="p-grid p-nogutter p-justify-between mt-5">
+  <p-button class="mr-1" label="Atras" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>
+  <p-button label="Siguiente" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
+</div>
