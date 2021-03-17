@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   mostrarSpinner:boolean = false;
   miFormulario:FormGroup = this.fb.group({
 
-    email:['gabrielhernandezgjha1@gmail.com',Validators.required],
-    password:['123456789',Validators.required]
+    email:['',Validators.required],
+    password:['',Validators.required]
 
   });
   constructor(private fb:FormBuilder, private _AuthService:AuthService,private router:Router) { }
